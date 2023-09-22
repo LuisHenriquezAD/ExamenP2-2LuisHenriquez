@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -41,7 +42,7 @@ public class PRI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
+        iniciar = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -50,6 +51,7 @@ public class PRI extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         usuario2 = new javax.swing.JTextField();
         contrasena2 = new javax.swing.JPasswordField();
+        jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -92,7 +94,7 @@ public class PRI extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
-        jLabel8.setText("Iniciar Sesion");
+        jLabel8.setText("Ingrese sus Datos ok?");
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
         jLabel10.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
@@ -107,6 +109,15 @@ public class PRI extends javax.swing.JFrame {
 
         contrasena2.setBackground(new java.awt.Color(0, 153, 51));
         contrasena2.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
+
+        jButton3.setBackground(new java.awt.Color(0, 153, 51));
+        jButton3.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
+        jButton3.setText("Iniciar Sesion");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -128,7 +139,8 @@ public class PRI extends javax.swing.JFrame {
                         .addComponent(jLabel11)
                         .addGap(37, 37, 37)
                         .addComponent(contrasena2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(138, 490, Short.MAX_VALUE))
+                .addGap(138, 322, Short.MAX_VALUE))
+            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,22 +152,26 @@ public class PRI extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(122, 122, 122)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(contrasena2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(123, 123, 123)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout iniciarLayout = new javax.swing.GroupLayout(iniciar.getContentPane());
+        iniciar.getContentPane().setLayout(iniciarLayout);
+        iniciarLayout.setHorizontalGroup(
+            iniciarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        iniciarLayout.setVerticalGroup(
+            iniciarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iniciarLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -379,48 +395,28 @@ public class PRI extends javax.swing.JFrame {
                 fichero = jfc.getSelectedFile();
                 fr = new FileReader(fichero);
                 br = new BufferedReader(fr);
-                String linea;
 
                 String usu = "";
-                Pattern patron = Pattern.compile("Usuario = ([^,]+)");
-                while ((linea = br.readLine()) != null) {
-                    Matcher matcher = patron.matcher(br.readLine());
-
-                    while (matcher.find()) {
-                        usu = matcher.group(1);
-                    }
-                }
                 int ed = 0;
-                patron = Pattern.compile("Edad = ([^,]+)");
-                while ((linea = br.readLine()) != null) {
-                    Matcher matcher = patron.matcher(br.readLine());
-
-                    while (matcher.find()) {
-                        ed = Integer.parseInt(matcher.group(1));
-                    }
-                }
-
                 String con = "";
-                patron = Pattern.compile("Contrasena = ([^,]+)");
-                while ((linea = br.readLine()) != null) {
-                    Matcher matcher = patron.matcher(br.readLine());
+                String tip = "";
 
-                    while (matcher.find()) {
-                        con = matcher.group(1);
+                br = new BufferedReader((fr));
+                String linea;
+                Pattern patron = Pattern.compile("Usuario=([^,]+), Edad=(\\d+), Contrasena=([^,]+), Tipo=([^,]+)");
+
+                while ((linea = br.readLine()) != null) {
+                    Matcher matcher = patron.matcher(linea);
+
+                    if (matcher.find()) {
+                        usu = matcher.group(1);
+                        ed = Integer.parseInt(matcher.group(2));
+                        con = matcher.group(3);
+                        tip = matcher.group(4);
+
                     }
                 }
-                
-                String tip = "";
-                patron = Pattern.compile("Tipo = ([^,]+)");
-                while ((linea = br.readLine()) != null) {
-                Matcher matcher = patron.matcher(br.readLine());
-               
-                while (matcher.find()) {
-                    tip = matcher.group(1);
-                }
-                }
 
-                System.out.println(ed + usu + con + tip);
                 ok = new USUARIO(ed, usu, con, tip);
                 usuarios.add(ok);
 
@@ -439,8 +435,78 @@ public class PRI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        iniciar.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        iniciar.setLocationRelativeTo(this);
+        iniciar.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        File fichero = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        try {
+            JFileChooser jfc = new JFileChooser("./");
+            FileNameExtensionFilter filtro
+                    = new FileNameExtensionFilter(
+                            "Archivos de Texto", "txt");
+            jfc.setFileFilter(filtro);
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fichero = jfc.getSelectedFile();
+                fr = new FileReader(fichero);
+                br = new BufferedReader(fr);
+
+                String usu = "";
+                int ed = 0;
+                String con = "";
+                String tip = "";
+
+                br = new BufferedReader((fr));
+                String linea;
+                Pattern patron = Pattern.compile("Usuario=([^,]+), Edad=(\\d+), Contrasena=([^,]+), Tipo=([^,]+)");
+
+                while ((linea = br.readLine()) != null) {
+                    Matcher matcher = patron.matcher(linea);
+
+                    if (matcher.find()) {
+                        usu = "";
+                        usu = matcher.group(1);
+                        ed = 0;
+                        ed = Integer.parseInt(matcher.group(2));
+                        con = "";
+                        con = matcher.group(3);
+                        tip = "";
+                        tip = matcher.group(4);
+                        System.out.println(usu + ed + con + tip);
+                        String veri = usuario2.getText();
+                        usuario2.setText("");
+                        String verif = contrasena2.getText();
+                        contrasena2.setText("");
+
+                        if (veri == usu && verif == con) {
+//                            iniciar.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//                            iniciar.setLocationRelativeTo(this);
+//                            iniciar.setVisible(true);
+                            iniciar.dispose();
+                            break;
+                        }
+
+                    }
+                }
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            br.close();
+            fr.close();
+        } catch (IOException ex) {
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,9 +547,10 @@ public class PRI extends javax.swing.JFrame {
     private javax.swing.JPasswordField contrasena;
     private javax.swing.JPasswordField contrasena2;
     private javax.swing.JSpinner edad;
+    private javax.swing.JFrame iniciar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JFrame jFrame1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

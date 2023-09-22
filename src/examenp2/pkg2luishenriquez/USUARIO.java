@@ -54,11 +54,11 @@ private String tipo;
 
     @Override
     public String toString() {
-        return "USUARIO{" 
+        return "USUARIO" 
                 + "Usuario=" + usuario 
                 + ", Edad=" + edad 
                 + ", Contrasena=" + contra 
-                + ", Tipo=" + tipo + '}' ;
+                + ", Tipo=" + tipo  ;
     }
 
 

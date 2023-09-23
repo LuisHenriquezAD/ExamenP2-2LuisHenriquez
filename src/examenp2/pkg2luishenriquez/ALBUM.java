@@ -73,11 +73,7 @@ public class ALBUM {
 
     @Override
     public String toString() {
-        return "ALBUM " + 
-                "Titulo=" + titulo + 
-                ", Fecha=" + fecha + 
-                ", Likes=" + likes + 
-                ", Canciones=" + canciones ;
+        return  titulo;
     }
     
     

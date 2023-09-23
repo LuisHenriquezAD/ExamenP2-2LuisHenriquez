@@ -70,5 +70,7 @@ public class ARTISTAS {
                 + ", Canciones=" + canciones
                 + ", Albums=" + albums;
     }
+    
+    
 
 }

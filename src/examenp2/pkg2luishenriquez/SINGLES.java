@@ -70,11 +70,7 @@ public class SINGLES {
 
     @Override
     public String toString() {
-        return "SINGLES" + 
-                "Titulo=" + titulo + 
-                ", Fecha=" + fecha + 
-                ", Likes=" + likes + 
-                ", Canciones=" + canciones ;
+        return titulo ;
     }
     
     

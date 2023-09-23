@@ -58,7 +58,7 @@ private String tipo;
                 + "Usuario=" + usuario 
                 + ", Edad=" + edad 
                 + ", Contrasena=" + contra 
-                + ", Tipo=" + tipo  ;
+                + ", Tipo=" + tipo + ',' ;
     }
 
 

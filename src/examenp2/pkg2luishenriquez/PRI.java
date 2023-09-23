@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,6 +20,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -52,6 +55,19 @@ public class PRI extends javax.swing.JFrame {
         usuario2 = new javax.swing.JTextField();
         contrasena2 = new javax.swing.JPasswordField();
         jButton3 = new javax.swing.JButton();
+        artista = new javax.swing.JFrame();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        A = new javax.swing.JButton();
+        S = new javax.swing.JButton();
+        ing = new javax.swing.JButton();
+        C1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ARBOL = new javax.swing.JTree();
+        C2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -172,6 +188,158 @@ public class PRI extends javax.swing.JFrame {
             .addGroup(iniciarLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(0, 153, 51));
+
+        jPanel6.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel9.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("SPOTIFY");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(534, 534, 534)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(708, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jLabel12.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel12.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
+        jLabel12.setText("Artista");
+
+        jLabel14.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+
+        A.setBackground(new java.awt.Color(0, 153, 51));
+        A.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        A.setText("Ingresar Album");
+        A.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AActionPerformed(evt);
+            }
+        });
+
+        S.setBackground(new java.awt.Color(0, 153, 51));
+        S.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        S.setText("Ingresar Singles");
+        S.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SActionPerformed(evt);
+            }
+        });
+
+        ing.setBackground(new java.awt.Color(0, 153, 51));
+        ing.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
+        ing.setText("Ingresar Datos");
+        ing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingActionPerformed(evt);
+            }
+        });
+
+        C1.setBackground(new java.awt.Color(0, 153, 51));
+        C1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        C1.setText("Ingresar Cancion");
+        C1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C1ActionPerformed(evt);
+            }
+        });
+
+        ARBOL.setBackground(new java.awt.Color(0, 153, 0));
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Lanzamientos");
+        ARBOL.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(ARBOL);
+
+        C2.setBackground(new java.awt.Color(0, 153, 51));
+        C2.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        C2.setText("METER");
+        C2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(41, 41, 41)
+                        .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(44, 44, 44))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(504, 504, 504)
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(499, 499, 499)
+                        .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(369, 369, 369)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(C1)
+                                .addGap(61, 61, 61)
+                                .addComponent(S))
+                            .addComponent(ing, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jLabel14))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ing, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(S, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
+
+        javax.swing.GroupLayout artistaLayout = new javax.swing.GroupLayout(artista.getContentPane());
+        artista.getContentPane().setLayout(artistaLayout);
+        artistaLayout.setHorizontalGroup(
+            artistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        artistaLayout.setVerticalGroup(
+            artistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -478,21 +646,29 @@ public class PRI extends javax.swing.JFrame {
                         con = matcher.group(3);
                         tip = "";
                         tip = matcher.group(4);
+
                         System.out.println(usu + ed + con + tip);
+
                         String veri = usuario2.getText();
                         usuario2.setText("");
                         String verif = contrasena2.getText();
                         contrasena2.setText("");
 
-                        if (veri == usu && verif == con) {
-//                            iniciar.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//                            iniciar.setLocationRelativeTo(this);
-//                            iniciar.setVisible(true);
-                            iniciar.dispose();
-                            break;
-                        }
+                        if (veri.equals(usu) && verif.equals(con)) {
+                            if (tip.equals("Cliente")) {
 
+                            }
+
+                            if (tip.equals("Artista")) {
+                                artista.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                                artista.setLocationRelativeTo(this);
+                                artista.setVisible(true);
+                            }
+
+                            iniciar.dispose();
+                        }
                     }
+
                 }
 
             }
@@ -508,9 +684,142 @@ public class PRI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        String tituloAlbum = JOptionPane.showInputDialog("Introduce el título del álbum:");
+        Date fechaAlbum = null;
+        try {
+            fechaAlbum = dateFormat.parse(JOptionPane.showInputDialog("Introduce la fecha del álbum (dd/MM/yyyy):"));
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "Formato de fecha incorrecto. Utiliza dd/MM/yyyy.");
+
+        }
+
+        int likesAlbum = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad de likes del álbum:"));
+        int cancionesAlbum = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad de canciones del álbum:"));
+
+        ALBUM album = new ALBUM(tituloAlbum, fechaAlbum, likesAlbum, cancionesAlbum);
+        albums.add(album);
+        ARTISTAS artista = new ARTISTAS();
+
+        artista.addAlbum(album);
+
+    }//GEN-LAST:event_AActionPerformed
+
+    private void SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SActionPerformed
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        String tituloSINGLES = JOptionPane.showInputDialog("Introduce el título del SINGLE:");
+        Date fechaSINGLES = null;
+        try {
+            fechaSINGLES = dateFormat.parse(JOptionPane.showInputDialog("Introduce la fecha del SINGLE (dd/MM/yyyy):"));
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "Formato de fecha incorrecto. Utiliza dd/MM/yyyy.");
+
+        }
+
+        int likesSINGLES = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad de likes del SINGLE:"));
+
+        SINGLES single = new SINGLES(tituloSINGLES, fechaSINGLES, likesSINGLES);
+        singles.add(single);
+        ARTISTAS artista = new ARTISTAS();
+
+        artista.addSingle(single);
+    }//GEN-LAST:event_SActionPerformed
+
+    private void ingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingActionPerformed
+        String nombre = JOptionPane.showInputDialog("Introduce el nombre del artista:");
+        int canciones = Integer.parseInt(JOptionPane.showInputDialog("Introduce el numero de canciones:"));
+        int albums = Integer.parseInt(JOptionPane.showInputDialog("Introduce el numero de albumes:"));
+
+        ARTISTAS artista = new ARTISTAS(nombre, canciones, albums);
+        artistas.add(artista);
+
+        ing.setEnabled(false);
+    }//GEN-LAST:event_ingActionPerformed
+
+    private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
+        String tituloCancion = JOptionPane.showInputDialog("Introduce el titulo de la cancion:");
+
+        int duracionCancion = Integer.parseInt(JOptionPane.showInputDialog("Introduce la duracion de la cancion (en segundos):"));
+
+        CANCIONES cancion = new CANCIONES(tituloCancion, duracionCancion);
+
+        int tipoCancion = Integer.parseInt(JOptionPane.showInputDialog("Deseas agregar la cancion a un single o a un slbum?\n1. Single\n2. album"));
+
+        if (tipoCancion == 1) {
+            JOptionPane.showMessageDialog(this, "Singles disponibles:");
+            for (int i = 0; i < singles.size(); i++) {
+                JOptionPane.showMessageDialog(this, (i + 1) + ". " + singles.get(i).getTitulo());
+            }
+            int indiceSingle = Integer.parseInt(JOptionPane.showInputDialog("Elige un single por su numero:"));
+            if (indiceSingle >= 1 && indiceSingle <= singles.size()) {
+                SINGLES singleElegido = singles.get(indiceSingle - 1);
+                singleElegido.addCanciones(new CANCIONES(tituloCancion, duracionCancion));
+            } else {
+                JOptionPane.showMessageDialog(this, "Numero de single no valido.");
+            }
+        } else if (tipoCancion == 2) {
+            JOptionPane.showMessageDialog(this, "Albumes disponibles:");
+            for (int i = 0; i < albums.size(); i++) {
+                JOptionPane.showMessageDialog(this, (i + 1) + ". " + albums.get(i).getTitulo());
+            }
+            int indiceAlbum = Integer.parseInt(JOptionPane.showInputDialog("Elige un album por su numero:"));
+            if (indiceAlbum >= 1 && indiceAlbum <= albums.size()) {
+                ALBUM albumElegido = albums.get(indiceAlbum - 1);
+                albumElegido.addCanciones(new CANCIONES(tituloCancion, duracionCancion));
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero de album no valido.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Opcion no valida. Debes ingresar 1 para Single o 2 para Álbum.");
+        }
+    }//GEN-LAST:event_C1ActionPerformed
+
+
+    private void C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C2ActionPerformed
+        DefaultTreeModel treeModel = (DefaultTreeModel) ARBOL.getModel();
+        DefaultMutableTreeNode rootNode = (DefaultMutableTreeNode) treeModel.getRoot();
+
+        rootNode.removeAllChildren();
+
+        for (ARTISTAS artista : artistas) {
+            DefaultMutableTreeNode artistaNode = new DefaultMutableTreeNode(artista.getNombre());
+            rootNode.add(artistaNode);
+
+            for (ARTISTAS artistaa : artistas) {
+                DefaultMutableTreeNode albumNode = new DefaultMutableTreeNode((artistaa.getAlbumes()));
+                artistaNode.add(albumNode);
+                
+                for (ALBUM album : albums) {
+                    DefaultMutableTreeNode albumNodes = new DefaultMutableTreeNode(album.getCanciones());
+                    albumNode.add(albumNodes);
+                    
+                    for (ARTISTAS artistaaa : artistas) {
+                        DefaultMutableTreeNode cancionNode = new DefaultMutableTreeNode(artistaaa.getSingles());
+                        albumNode.add(cancionNode);
+                        
+                        for (SINGLES single : singles) {
+                        DefaultMutableTreeNode cancionNodeee = new DefaultMutableTreeNode(single.getCanciones());
+                        cancionNode.add(cancionNodeee);
+                        
+                        }
+                    }
+                }
+                
+            }
+            
+        }
+            
+        
+
+                treeModel.reload();
+    }//GEN-LAST:event_C2ActionPerformed
+
     /**
-     * @param args the command line arguments
-     */
+             * @param args the command line arguments
+             */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -544,9 +853,16 @@ public class PRI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton A;
+    private javax.swing.JTree ARBOL;
+    private javax.swing.JButton C1;
+    private javax.swing.JButton C2;
+    private javax.swing.JButton S;
+    private javax.swing.JFrame artista;
     private javax.swing.JPasswordField contrasena;
     private javax.swing.JPasswordField contrasena2;
     private javax.swing.JSpinner edad;
+    private javax.swing.JButton ing;
     private javax.swing.JFrame iniciar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -554,6 +870,8 @@ public class PRI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -561,13 +879,21 @@ public class PRI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> tipo;
     private javax.swing.JTextField usuario;
     private javax.swing.JTextField usuario2;
     // End of variables declaration//GEN-END:variables
 ArrayList<USUARIO> usuarios = new ArrayList<>();
+    private ArrayList<ARTISTAS> artistas = new ArrayList<>();
+    ArrayList<ALBUM> albums = new ArrayList<>();
+    ArrayList<SINGLES> singles = new ArrayList<>();
+    ArrayList<CANCIONES> canciones = new ArrayList<>();
 }
